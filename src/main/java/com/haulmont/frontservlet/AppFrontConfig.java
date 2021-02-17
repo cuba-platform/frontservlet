@@ -18,12 +18,15 @@ package com.haulmont.frontservlet;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
+
+import java.nio.charset.StandardCharsets;
 
 @Configuration
 @EnableWebMvc
@@ -48,6 +51,7 @@ public class AppFrontConfig implements WebMvcConfigurer {
         FreeMarkerViewResolver resolver = new FreeMarkerViewResolver("", ".ftl");
         resolver.setCache(true);
         resolver.setPrefix("");
+        resolver.setContentType("text/html;charset=UTF-8");
         return resolver;
     }
 
