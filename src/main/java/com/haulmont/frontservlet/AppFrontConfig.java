@@ -42,6 +42,7 @@ public class AppFrontConfig implements WebMvcConfigurer {
     @Bean
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer freemarkerConfig = new FreeMarkerConfigurer();
+        freemarkerConfig.setDefaultEncoding("UTF-8");
         freemarkerConfig.setTemplateLoaderPath("/front/");
         return freemarkerConfig;
     }
